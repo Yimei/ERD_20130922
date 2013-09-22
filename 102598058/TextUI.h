@@ -8,5 +8,5 @@ public:
 	TextUI();
 	~TextUI();
 	void displayMenu();
-	void ProcessCommand();
+	void processCommand();
 };
