@@ -1,9 +1,10 @@
-#include <string>
-#include "Node.h"
-using namespace std;
 #ifndef _Entity_H_ 
 #define _Entity_H_
-#endif
+
+#include <string>
+#include "Node.h"
+
+using namespace std;
 class Entity:public Node{
 public:
 	Entity();
@@ -11,3 +12,4 @@ public:
 	void connectTo(Component* component);
 	bool canConnectTo(Component* component);
 };
+#endif

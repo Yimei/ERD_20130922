@@ -2,7 +2,7 @@
 #include "Connector.h"
 using namespace std;
 
-Connector::Connector(){
+Connector::Connector():Component(){
 
 }
 void Connector::connectTo(Component* component){

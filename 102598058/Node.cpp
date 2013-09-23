@@ -2,7 +2,7 @@
 #include "Node.h"
 using namespace std;
 
-Node::Node(){
+Node::Node():Component(){
 
 }
 void Node::connectTo(Component* component){

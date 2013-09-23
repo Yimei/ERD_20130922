@@ -1,12 +1,18 @@
-#include <string>
-using namespace std;
 #ifndef _TextUI_H_ 
 #define _TextUI_H_
-#endif
+#include "ERModel.h"
+
+#include <string>
+
+using namespace std;
 class TextUI{
 public:
 	TextUI();
 	~TextUI();
 	void displayMenu();
 	void processCommand();
+private:
+	ERModel* eRModel;
+	int _firstId;
 };
+#endif

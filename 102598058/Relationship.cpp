@@ -2,14 +2,17 @@
 #include "Relationship.h"
 using namespace std;
 
-Relationship::Relationship(){
+Relationship::Relationship():Node(){
 
 }
 void Relationship::connectTo(Component* component){
 
 }
 bool Relationship::canConnectTo(Component* component){
-	return true;
+	if(component->getType()=="E")
+		return true;
+	else
+		return false;
 }
 Relationship::~Relationship(){
 

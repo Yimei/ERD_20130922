@@ -11,7 +11,7 @@ using namespace std;
 #define MENU_SIX "6. Exit\n> ";
 #define WKONDYWTA "What kind of node do you want to add?\n[A]Attribute [E]Entity [R]Relation\n> ";
 TextUI::TextUI(){
-
+	eRModel = new ERModel();
 }
 void TextUI::displayMenu(){
 	cout << MENU_ONE
@@ -27,22 +27,32 @@ void TextUI::displayMenu(){
 //};
 void TextUI::processCommand(){
 	int _command;
-	
-	
 	//enum Type _typeChangeToNum;
 	string _typeName;
 	string _type;
-	ERModel eRModel;
+	
+	//ERModel eRModel;
 	cin >> _command;
 	switch (_command){
 	case 1: 
 		cout << "What kind of node do you want to add?\n[A]Attribute [E]Entity [R]Relation" << endl<<"> ";
 		cin >> _type;
-		while ((_type != "A")&&(_type != "E")&&(_type != "R")){
+		while ((_type != "A")&&(_type != "E")&&(_type != "R"))
+		{
 			cout << "You entered an invalid node. Please enter a valid one again.\n[A]Attribute [E]Entity [R]Relation" << endl<<"> ";
 			cin >> _type;
 		}
-		eRModel.addNode(_type);
+		eRModel->addNode(_type);
+		displayMenu();
+	case 2:
+		cout << "Please enter the first node ID "<< endl << "> ";
+		eRModel->checkFirstNodeId();
+		cout << "Please enter the second node ID "<< endl << "> ";
+		eRModel->checkSecondNodeId();
+		//eRModel->checkConnection();
+		//eRModel->addConnection(eRModel->getFirstNode(),eRModel->getSecondNode());
+		displayMenu();
+
 	}
 }
 TextUI::~TextUI(){
