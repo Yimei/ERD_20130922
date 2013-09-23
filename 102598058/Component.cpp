@@ -8,6 +8,7 @@ Component::Component(){
 	_id = 0;
 	_text = "";
 	_type = "";
+	_connections = 0;
 }
 void Component::setID(int id){
 	_id = id;
@@ -18,6 +19,10 @@ void Component::setType(string type){
 void Component::setText(string name){
 	_text = name;
 }
+void Component::setConnections()
+{
+	_connections++;
+}
 int Component::getID(){
 	return _id;
 }
@@ -26,6 +31,9 @@ string Component::getText(){
 }
 string Component::getType(){
 	return _type;
+}
+int Component::getConnections(){
+	return _connections;
 }
 void Component::connectTo(Component* component){
 

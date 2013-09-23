@@ -50,9 +50,12 @@ void TextUI::processCommand(){
 		cout << "Please enter the second node ID "<< endl << "> ";
 		eRModel->checkSecondNodeId();
 		//eRModel->checkConnection();
-		//eRModel->addConnection(eRModel->getFirstNode(),eRModel->getSecondNode());
+		eRModel->addConnection(eRModel->getFirstNode(),eRModel->getSecondNode());
 		displayMenu();
-
+	default:
+		cout << "Please enter the number again." << endl;
+		//system("pause");
+		displayMenu();
 	}
 }
 TextUI::~TextUI(){

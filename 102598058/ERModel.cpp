@@ -9,6 +9,8 @@ using namespace std;
 
 ERModel::ERModel(){
 	_id = 0;
+	_nodeOne = 0;
+	_nodeTwo = 0;
 }
 void ERModel::addNode(string type){
 	string _text;
@@ -83,16 +85,16 @@ void ERModel::checkSecondNodeId()
 	}
 	else
 	{
-		_nodeTwo = atoi(_firstNodeId.c_str());
+		_nodeTwo = atoi(_secondNodeId.c_str());
 	}
 	
 }
 void ERModel::checkConnection()
 {
-	if (atoi(_secondNodeId.c_str()) == atoi(_firstNodeId.c_str())) //不可自連
-	{
-		cout << "The node '" << atoi(_secondNodeId.c_str()) << "' " << "cannot be connected to itself." << endl;
-	}
+	//if (atoi(_secondNodeId.c_str()) == atoi(_firstNodeId.c_str())) //不可自連
+	//{
+	//	cout << "The node '" << atoi(_secondNodeId.c_str()) << "' " << "cannot be connected to itself." << endl;
+	//}
 	/*if (_components[atoi(_secondNodeId.c_str())]->getType() == _components[atoi(_firstNodeId.c_str())]->getType())
 	{
 	cout << "The node '"<< atoi(_secondNodeId.c_str()) << "' cannot be connected by the node '" << atoi(_firstNodeId.c_str()) << "'." << endl;
@@ -101,10 +103,21 @@ void ERModel::checkConnection()
 }
 void ERModel::addConnection(Component* nodeOne, Component* nodeTwo)
 {
-	if (nodeOne->canConnectTo(nodeTwo))
+	if (nodeOne->getID() == nodeTwo->getID())
+	{
+		cout << "node1 id =" << nodeOne->getID() << "  node2 id =" << nodeTwo->getID() <<endl;
+		cout <<" ~~~ " <<endl;
+		cout << "The node '" << nodeTwo->getID() <<"' cannot be connected to itself."<<endl;
+	}		
+	else if (nodeOne->canConnectTo(nodeTwo))
+	{
 		nodeOne->connectTo(nodeTwo);
+	}
 	else
-		cout << "The node '"<< nodeOne << "' cannot be connected by the node '" << nodeTwo << "'." << endl;
+	{
+		cout << "The node '"<< nodeOne->getID() << "' cannot be connected by the node '" << nodeTwo->getID() << "'." << endl;
+	}
+		
 }
 Component* ERModel::getFirstNode()
 {
