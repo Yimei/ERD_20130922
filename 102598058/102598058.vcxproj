@@ -86,6 +86,7 @@
     <ClCompile Include="ERModel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="PresentationModel.cpp" />
     <ClCompile Include="Relationship.cpp" />
     <ClCompile Include="TextUI.cpp" />
   </ItemGroup>
@@ -97,6 +98,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="ERModel.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="PresentationModel.h" />
     <ClInclude Include="Relationship.h" />
     <ClInclude Include="TextUI.h" />
   </ItemGroup>

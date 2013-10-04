@@ -2,28 +2,33 @@
 #include <iostream>
 #include "Entity.h"
 using namespace std;
-
 Entity::Entity():Node(){
-
 }
 void Entity::connectTo(Component* component){
-	this->setConnections();
-	component->setConnections();
+	this->setConnections(component);
 }
 bool Entity::canConnectTo(Component* component){
-	
-	if (component->getType() == this->getType())
+	if (component->getType() == "E")//是relationship 或 attribute
 	{
 		return false;
 	}
-	if (component->getType() == "A" || component->getType()=="R")
+	else //不能連同一個A or R
 	{
-		return true;
+		hadConnected(component);
 	}
-	else
+}
+bool Entity::hadConnected(Component* component)
+{
+	for (int i = 0; i < _connectionsVector.size();i++)
 	{
-		return false;
+		if (_connectionsVector[i]->getID() == component->getID())
+		{
+			cout << "The node '" << this->getID() << "' has already been connected to component '" << component->getID() << "'." << endl;
+			return false;
+		}
 	}
+	_connectionsVector.push_back(component);
+	return true;
 }
 Entity::~Entity(){
 

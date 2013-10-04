@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "102598058", "102598058\102598058.vcxproj", "{875BA022-03DD-4399-A2E8-11D31CDEF38B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "102598058_ERD", "102598058\102598058.vcxproj", "{875BA022-03DD-4399-A2E8-11D31CDEF38B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

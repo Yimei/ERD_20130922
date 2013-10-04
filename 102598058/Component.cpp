@@ -1,14 +1,11 @@
 #include "Component.h"
 #include <string>
 using namespace std;
-
-
-
 Component::Component(){
 	_id = 0;
 	_text = "";
 	_type = "";
-	_connections = 0;
+	_connectionsNum = 0;
 }
 void Component::setID(int id){
 	_id = id;
@@ -19,9 +16,12 @@ void Component::setType(string type){
 void Component::setText(string name){
 	_text = name;
 }
-void Component::setConnections()
+void Component::setConnections(Component* component){
+	_connectionsVector.push_back(component);
+}
+void Component::setConnectionsNum()
 {
-	_connections++;
+	_connectionsNum++;
 }
 int Component::getID(){
 	return _id;
@@ -32,15 +32,18 @@ string Component::getText(){
 string Component::getType(){
 	return _type;
 }
-int Component::getConnections(){
-	return _connections;
+vector<Component*> Component::getConnections()
+{
+	return _connectionsVector;
+}
+int Component::getConnectionsNum(){
+	return _connectionsNum;
 }
 void Component::connectTo(Component* component){
-
 }
 bool Component::canConnectTo(Component *component){
 	return true;
 }
 Component::~Component(){
-
+	
 }
